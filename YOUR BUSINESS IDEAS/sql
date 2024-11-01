@@ -1,0 +1,22 @@
+CREATE TABLE Manga (
+  manga_id INT,
+  title VARCHAR(255) NOT NULL,
+  author VARCHAR(255),
+  genre VARCHAR(255),
+  publication_date DATE
+);
+
+CREATE TABLE Customer (
+  customer_id INT,
+  name VARCHAR(255),
+  email VARCHAR(255),
+  phone_number VARCHAR(20)
+);  
+
+CREATE TABLE MangaReading (
+  manga_reading_id INT,
+  manga_id INT,
+  customer_id INT,
+  FOREIGN KEY (manga_id) REFERENCES Manga(manga_id),
+  FOREIGN KEY (customer_id) REFERENCES Customer(customer_id)
+);  
